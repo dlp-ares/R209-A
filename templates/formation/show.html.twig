@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+    <h1>Formation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formation.id }}</td>
+            </tr>
+            <tr>
+                <th>NomEtablissement</th>
+                <td>{{ formation.nomEtablissement }}</td>
+            </tr>
+            <tr>
+                <th>VilleEtablissement</th>
+                <td>{{ formation.villeEtablissement }}</td>
+            </tr>
+            <tr>
+                <th>Distanciel</th>
+                <td>{{ formation.distanciel ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>DateD</th>
+                <td>{{ formation.dateD ? formation.dateD|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateF</th>
+                <td>{{ formation.dateF ? formation.dateF|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>NomFormation</th>
+                <td>{{ formation.nomFormation }}</td>
+            </tr>
+            <tr>
+                <th>Specialite</th>
+                <td>{{ formation.specialite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_formation_index') }}">back to list</a>
+
+    <a href="{{ path('app_formation_edit', {'id': formation.id}) }}">edit</a>
+
+    {{ include('formation/_delete_form.html.twig') }}
+{% endblock %}

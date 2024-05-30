@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Veille{% endblock %}
+
+{% block body %}
+    <h1>Veille</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ veille.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ veille.nom }}</td>
+            </tr>
+            <tr>
+                <th>DateD</th>
+                <td>{{ veille.dateD ? veille.dateD|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Acquisition</th>
+                <td>{{ veille.acquisition }}</td>
+            </tr>
+            <tr>
+                <th>VeilleContinue</th>
+                <td>{{ veille.veilleContinue ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_veille_index') }}">back to list</a>
+
+    <a href="{{ path('app_veille_edit', {'id': veille.id}) }}">edit</a>
+
+    {{ include('veille/_delete_form.html.twig') }}
+{% endblock %}

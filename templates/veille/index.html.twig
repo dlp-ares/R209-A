@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Veille index{% endblock %}
+
+{% block body %}
+    <h1>Veille index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>DateD</th>
+                <th>Acquisition</th>
+                <th>VeilleContinue</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for veille in veilles %}
+            <tr>
+                <td>{{ veille.id }}</td>
+                <td>{{ veille.nom }}</td>
+                <td>{{ veille.dateD ? veille.dateD|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ veille.acquisition }}</td>
+                <td>{{ veille.veilleContinue ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_veille_show', {'id': veille.id}) }}">show</a>
+                    <a href="{{ path('app_veille_edit', {'id': veille.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_veille_new') }}">Create new</a>
+{% endblock %}
