@@ -1,0 +1,56 @@
+
+
+	symfony new folio --full
+	utilisateur BD WAMP : root/""
+	Modification fichier.env par :
+	DATABASE_URL="mysql://root@127.0.0.1:3306/portfolio"
+
+	symfony console doctrine:database:create 
+
+	symfony console make:entity
+	- répondre aux questions
+	symfony console make:migration
+	symfony console d:m:m
+	- on valide par entrée
+
+table Formation 
+(id, nomEtablissement, villeEtablissement, distanciel,
+dateD, dateF, nomFormation, specialite, #niveau, #category)
+
+table Veille
+(id, nom, dateD, acquisition, veilleContinue (boolean), #category)
+
+	symfony console make:controller
+	- DashboardController
+	symfony console make:user
+	symfony console make:auth
+	symfony console make:registration-form
+
+	https://github.com/dlp-ares/R209-A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+		
