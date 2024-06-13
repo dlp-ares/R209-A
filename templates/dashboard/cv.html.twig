@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+<h1>Mes formations diplômantes</h1>
+<table class="table">
+        <thead>
+            <tr>
+                <th>Etablissement</th>
+                <th>Ville</th>
+                <th>Distanciel</th>
+                <th>Date Début</th>
+                <th>Date Fin</th>
+                <th>Nom</th>
+                <th>Spécialité</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formationDiplomes %}
+            <tr>
+               
+                <td>{{ formation.nomEtablissement }}</td>
+                <td>{{ formation.villeEtablissement }}</td>
+                <td>{{ formation.distanciel ? 'Yes' : 'No' }}</td>
+                <td>{{ formation.dateD ? formation.dateD|date('Y-m-d') : '' }}</td>
+                <td>{{ formation.dateF ? formation.dateF|date('Y-m-d') : 'en cours' }}</td>
+                <td>{{ formation.nomFormation }}</td>
+                <td>{{ formation.specialite }}</td>
+               
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

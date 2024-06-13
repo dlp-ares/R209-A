@@ -45,4 +45,16 @@ class FormationRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+    /** 
+     * @return Formation[] 
+     */ 
+    public function findByOneCategorie(string $categoryName1): array { 
+        $qb = $this->createQueryBuilder('f'); 
+        $qb->join('f.category', 'c') 
+        ->where('c.nom = :categoryName1') 
+        ->setParameter('categoryName1', $categoryName1);
+        
+        return $qb->getQuery()->getResult(); 
+    }
 }

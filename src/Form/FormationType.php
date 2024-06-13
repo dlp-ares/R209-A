@@ -6,7 +6,8 @@ use App\Entity\Formation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+//rajout pour la date
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 class FormationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -15,8 +16,12 @@ class FormationType extends AbstractType
             ->add('nomEtablissement')
             ->add('villeEtablissement')
             ->add('distanciel')
-            ->add('dateD')
-            ->add('dateF')
+            ->add('dateD', DateType::class, [
+				'widget' => 'single_text',
+			])
+            ->add('dateF', DateType::class, [
+				'widget' => 'single_text',
+			])
             ->add('nomFormation')
             ->add('specialite')
             ->add('niveau')
