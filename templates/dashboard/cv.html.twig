@@ -1,7 +1,5 @@
-{% extends 'base.html.twig' %}
-
+{% extends 'cv.html.twig' %}
 {% block title %}Hello DashboardController!{% endblock %}
-
 {% block body %}
 <h1>Mes formations diplômantes</h1>
 <table class="table">
@@ -23,7 +21,7 @@
                 <td>{{ formation.nomEtablissement }}</td>
                 <td>{{ formation.villeEtablissement }}</td>
                 <td>{{ formation.distanciel ? 'Yes' : 'No' }}</td>
-                <td>{{ formation.dateD ? formation.dateD|date('Y-m-d') : '' }}</td>
+                <td>{{ formation.dateD ? formation.dateD|date('d-m-Y') : '' }}</td>
                 <td>{{ formation.dateF ? formation.dateF|date('Y-m-d') : 'en cours' }}</td>
                 <td>{{ formation.nomFormation }}</td>
                 <td>{{ formation.specialite }}</td>
